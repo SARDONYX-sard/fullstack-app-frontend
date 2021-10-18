@@ -1,6 +1,6 @@
 export type NoteService = {
-  id: number;
-  content: string;
-  date: string;
-  important: boolean;
-};
+  id: number
+  content: string
+  date: string
+  important: boolean
+}
