@@ -4,3 +4,11 @@ export type NoteService = {
   date: string
   important: boolean
 }
+
+export type PostNote = Omit<NoteService, 'id' | 'date'>
+
+export type User = {
+  name: string
+  token: string
+  username: string
+}
