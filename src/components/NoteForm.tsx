@@ -1,18 +1,19 @@
 import React, { useState } from 'react'
+
 import { PostNote } from '../types/note'
 
-type Props = {
+export type Props = {
   createNote: (noteObject: PostNote) => void
 }
 
 const NoteForm = ({ createNote }: Props) => {
   const [newNote, setNewNote] = useState('')
 
-  const handleChange = (event: { target: { value: React.SetStateAction<string> } }) => {
+  const handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void = event => {
     setNewNote(event.target.value)
   }
 
-  const addNote = (event: { preventDefault: () => void }) => {
+  const addNote: (event: React.FormEvent<HTMLFormElement>) => void = event => {
     event.preventDefault()
     createNote({
       content: newNote,
@@ -23,7 +24,7 @@ const NoteForm = ({ createNote }: Props) => {
   }
 
   return (
-    <div>
+    <div className="formDiv">
       <h2>Create a new note</h2>
 
       <form onSubmit={addNote}>
