@@ -1,7 +1,14 @@
 import React from 'react'
-import type { NoteService } from '../types/note'
 
-const Note = ({ note, toggleImportance }: { note: NoteService; toggleImportance: () => void }) => {
+type Props = {
+  note: {
+    important: boolean
+    content: string
+  }
+  toggleImportance: () => void
+}
+
+const Note = ({ note, toggleImportance }: Props) => {
   const label = note.important ? 'make not important' : 'make important'
 
   return (
