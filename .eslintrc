@@ -13,22 +13,31 @@
     "ecmaVersion": 2021,
     "sourceType": "module"
   },
-  "plugins": ["react", "jest", "@typescript-eslint", "simple-import-sort"],
+  "plugins": ["react", "jest", "simple-import-sort", "@typescript-eslint"],
   "rules": {
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "arrow-spacing": ["error", { "before": true, "after": true }],
+    "eqeqeq": "error",
     "indent": ["error", 2],
     "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "single"],
-    "semi": ["error", "never"],
-    "eqeqeq": "error",
-    "no-trailing-spaces": "error",
-    "object-curly-spacing": ["error", "always"],
-    "arrow-spacing": ["error", { "before": true, "after": true }],
     "no-console": 0,
+    "no-trailing-spaces": "error",
+    "no-unused-vars": "off",
+    "object-curly-spacing": ["error", "always"],
+    "quotes": ["error", "single"],
     "react/prop-types": 0,
-    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
-    "@typescript-eslint/no-non-null-assertion": "off",
+    "semi": ["error", "never"],
+    "simple-import-sort/exports": "error",
     "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error"
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true
+      }
+    ],
+    "no-undef": "off"
   },
   "settings": {
     "react": {
