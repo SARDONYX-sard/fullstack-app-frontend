@@ -1,4 +1,5 @@
 import axios from 'axios'
+
 import type { NoteService, PostNote } from '../types/note'
 const baseUrl = '/api/notes'
 
@@ -27,4 +28,4 @@ const update = (id: number, newObject: PostNote) => {
   return request.then(response => response.data)
 }
 
-export { getAll, create, update, setToken }
+export { create, getAll, setToken,update }
