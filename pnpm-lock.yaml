@@ -9,6 +9,7 @@ specifiers:
   '@types/react': ^17.0.0
   '@types/react-dom': ^17.0.0
   axios: ^0.23.0
+  eslint-plugin-simple-import-sort: ^7.0.0
   react: ^17.0.2
   react-dom: ^17.0.2
   react-scripts: 4.0.3
@@ -29,6 +30,9 @@ dependencies:
   react-scripts: 4.0.3_react@17.0.2+typescript@4.4.3
   typescript: 4.4.3
   web-vitals: 1.1.2
+
+devDependencies:
+  eslint-plugin-simple-import-sort: 7.0.0
 
 packages:
 
@@ -5555,6 +5559,12 @@ packages:
       resolve: 1.20.0
       string.prototype.matchall: 4.0.4
     dev: false
+
+  /eslint-plugin-simple-import-sort/7.0.0:
+    resolution: {integrity: sha512-U3vEDB5zhYPNfxT5TYR7u01dboFZp+HNpnGhkDB2g/2E4wZ/g1Q9Ton8UwCLfRV9yAKyYqDh62oHOamvkFxsvw==}
+    peerDependencies:
+      eslint: '>=5.0.0'
+    dev: true
 
   /eslint-plugin-testing-library/3.10.1_eslint@7.20.0+typescript@4.4.3:
     resolution: {integrity: sha512-nQIFe2muIFv2oR2zIuXE4vTbcFNx8hZKRzgHZqJg8rfopIWwoTwtlbCCNELT/jXzVe1uZF68ALGYoDXjLczKiQ==}
