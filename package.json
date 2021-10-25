@@ -2,14 +2,18 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "npx eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+    "lint:fix": "npx eslint --fix  \"src/**/*.{js,jsx,ts,tsx}\"",
+    "coverage": "npm test -- --coverage --watchAll=false",
+    "server": "json-server -p3001 db.json",
+    "cypress:open": "cypress open"
+  },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
     "axios": "^0.23.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -17,13 +21,17 @@
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "npx eslint \"src/**/*.{js,jsx,ts,tsx}\"",
-    "lint:fix": "npx eslint --fix  \"src/**/*.{js,jsx,ts,tsx}\""
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "cypress": "^8.6.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-simple-import-sort": "^7.0.0"
   },
   "eslintConfig": {
     "extends": [
@@ -43,8 +51,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:3001",
-  "devDependencies": {
-    "eslint-plugin-simple-import-sort": "^7.0.0"
-  }
+  "proxy": "http://localhost:3001"
 }
