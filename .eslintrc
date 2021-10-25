@@ -2,9 +2,15 @@
   "env": {
     "browser": true,
     "es6": true,
-    "jest/globals": true
+    "jest/globals": true,
+    "cypress/globals": true
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:cypress/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -13,7 +19,7 @@
     "ecmaVersion": 2021,
     "sourceType": "module"
   },
-  "plugins": ["react", "jest", "simple-import-sort", "@typescript-eslint"],
+  "plugins": ["react", "simple-import-sort", "@typescript-eslint", "jest", "cypress"],
   "rules": {
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
@@ -28,6 +34,7 @@
     "quotes": ["error", "single"],
     "react/prop-types": 0,
     "semi": ["error", "never"],
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "simple-import-sort/exports": "error",
     "simple-import-sort/imports": "error",
     "sort-imports": [
@@ -36,8 +43,7 @@
         "ignoreCase": true,
         "ignoreDeclarationSort": true
       }
-    ],
-    "no-undef": "off"
+    ]
   },
   "settings": {
     "react": {
