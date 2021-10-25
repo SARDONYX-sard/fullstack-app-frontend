@@ -11,7 +11,8 @@
     "lint:fix": "npx eslint --fix  \"src/**/*.{js,jsx,ts,tsx}\"",
     "coverage": "npm test -- --coverage --watchAll=false",
     "server": "json-server -p3001 db.json",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "test:e2e": "cypress run"
   },
   "dependencies": {
     "axios": "^0.23.0",
