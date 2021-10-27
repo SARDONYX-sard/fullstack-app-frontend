@@ -8,8 +8,9 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:cypress/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -21,11 +22,11 @@
   },
   "plugins": ["react", "simple-import-sort", "@typescript-eslint", "jest", "cypress"],
   "rules": {
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
     "arrow-spacing": ["error", { "before": true, "after": true }],
     "eqeqeq": "error",
-    "indent": ["error", 2],
     "linebreak-style": ["error", "unix"],
     "no-console": 0,
     "no-trailing-spaces": "error",
@@ -34,7 +35,6 @@
     "quotes": ["error", "single"],
     "react/prop-types": 0,
     "semi": ["error", "never"],
-    "@typescript-eslint/explicit-module-boundary-types": "off",
     "simple-import-sort/exports": "error",
     "simple-import-sort/imports": "error",
     "sort-imports": [
