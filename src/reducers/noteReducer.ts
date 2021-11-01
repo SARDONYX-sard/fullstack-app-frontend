@@ -1,24 +1,24 @@
-import { NoteAction } from '../types/note'
+import { Dispatch } from 'redux'
 
-const initialState = [
-  {
-    content: 'reducer defines how redux store works',
-    important: true,
-    id: 1
-  },
-  {
-    content: 'state of store can contain any data',
-    important: false,
-    id: 2
-  }
-]
+import noteService from '../services/notes'
+import type { NoteAction, NoteService } from '../types/note'
 
-const noteReducer = (state = initialState, action: NoteAction) => {
+const noteReducer = (state: NoteService[] = [], action: NoteAction) => {
   switch (action.type) {
     case 'NEW_NOTE':
+      if (Array.isArray(action.data)) {
+        throw new Error('NEW_NOTE action type is not supported Array.')
+      }
       return [...state, action.data]
 
+    case 'INIT_NOTES':
+      return action.data
+
     case 'TOGGLE_IMPORTANCE': {
+      if (Array.isArray(action.data)) {
+        throw new Error('TOGGLE_IMPORTANCE action type is not supported Array.')
+      }
+
       const id = action.data.id
       const noteToChange = state.find(n => n.id === id)
       if (!noteToChange) throw new Error('note ID not found!')
@@ -36,16 +36,20 @@ const noteReducer = (state = initialState, action: NoteAction) => {
   }
 }
 
-const generateId = () => Number((Math.random() * 1000000).toFixed(0))
+export const initializeNotes = () => {
+  return async (dispatch: Dispatch<NoteAction>) => {
+    const notes = await noteService.getAll()
+    dispatch({
+      type: 'INIT_NOTES',
+      data: notes
+    })
+  }
+}
 
-export const createNote = (content: string) => {
+export const createNote = (data: NoteService) => {
   return {
     type: 'NEW_NOTE',
-    data: {
-      content,
-      important: false,
-      id: generateId()
-    }
+    data
   } as const
 }
 

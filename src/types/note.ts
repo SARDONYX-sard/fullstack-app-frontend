@@ -6,8 +6,8 @@ export type NoteService = {
 }
 
 export type NoteAction = {
-  type: 'NEW_NOTE' | 'TOGGLE_IMPORTANCE' | 'SET_FILTER'
-  data: Partial<NoteService>
+  type: 'NEW_NOTE' | 'INIT_NOTES' | 'TOGGLE_IMPORTANCE' | 'SET_FILTER'
+  data: Partial<NoteService> | Partial<NoteService>[]
   filter?: NoteFilter
 }
 

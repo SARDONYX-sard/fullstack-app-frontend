@@ -10,9 +10,15 @@ const setToken = (newToken: string) => {
   token = `bearer ${newToken}`
 }
 
-const getAll = () => {
-  const request = axios.get<NoteService[]>(baseUrl)
-  return request.then(response => response.data)
+const getAll = async () => {
+  const response = await axios.get<NoteService[]>(baseUrl)
+  return response.data
+}
+
+const createNew = async (content: string) => {
+  const object = { content, important: false }
+  const response = await axios.post<NoteService>(baseUrl, object)
+  return response.data
 }
 
 const create = (newObject: PostNote) => {
@@ -29,4 +35,5 @@ const update = (id: number, newObject: PostNote) => {
   return request.then(response => response.data)
 }
 
-export { create, getAll, setToken, update }
+const noteService = { create, createNew, getAll, setToken, update }
+export default noteService
