@@ -3,9 +3,7 @@ import { Dispatch } from 'redux'
 import noteService from '../services/notes'
 import type { NoteAction, NoteService } from '../types/note'
 
-type NoteState = Omit<NoteService, 'date'>[]
-
-const noteReducer = (state: NoteState = [], action: NoteAction) => {
+const noteReducer = (state: NoteService[] = [], action: NoteAction) => {
   switch (action.type) {
     case 'NEW_NOTE':
       if (Array.isArray(action.data)) {

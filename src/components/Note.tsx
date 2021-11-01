@@ -5,16 +5,16 @@ type Props = {
     important: boolean
     content: string
   }
-  handleClick: () => void
+  toggleImportance: () => void
 }
 
-const Note = ({ note, handleClick }: Props) => {
+const Note = ({ note, toggleImportance }: Props) => {
   const label = note.important ? 'make not important' : 'make important'
 
   return (
     <li className="note">
       <span>{note.content}</span>
-      <button onClick={handleClick}>{label}</button>
+      <button onClick={toggleImportance}>{label}</button>
     </li>
   )
 }
