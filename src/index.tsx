@@ -3,20 +3,10 @@ import './index.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { combineReducers, createStore } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
 
 import App from './App'
-import filterReducer from './reducers/filterReducer'
-import noteReducer from './reducers/noteReducer'
 import reportWebVitals from './reportWebVitals'
-
-const reducer = combineReducers({
-  notes: noteReducer,
-  filter: filterReducer
-})
-
-const store = createStore(reducer, composeWithDevTools())
+import store from './store'
 
 ReactDOM.render(
   <React.StrictMode>
