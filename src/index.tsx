@@ -2,15 +2,29 @@ import './index.css'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import { combineReducers, createStore } from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
 import App from './App'
+import filterReducer from './reducers/filterReducer'
+import noteReducer from './reducers/noteReducer'
 import reportWebVitals from './reportWebVitals'
+
+const reducer = combineReducers({
+  notes: noteReducer,
+  filter: filterReducer
+})
+
+const store = createStore(reducer, composeWithDevTools())
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
-  document.getElementById('root'),
+  document.getElementById('root')
 )
 
 // If you want to start measuring performance in your app, pass a function
