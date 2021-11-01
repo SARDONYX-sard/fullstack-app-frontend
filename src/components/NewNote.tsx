@@ -1,18 +1,23 @@
-import React, { Dispatch } from 'react'
-import { useDispatch } from 'react-redux'
+import React from 'react'
+import { connect } from 'react-redux'
 
 import { createNote } from '../reducers/noteReducer'
-import { NoteAction } from '../types/note'
+import { NoteService } from '../types/note'
 
-const NewNote = () => {
-  const dispatch = useDispatch<Dispatch<NoteAction>>()
+type Props = {
+  createNote: (data: NoteService) => {
+    readonly type: 'NEW_NOTE'
+    readonly data: NoteService
+  }
+}
 
+const NewNote = ({ createNote }: Props) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const addNote = (event: any) => {
     event.preventDefault()
     const content = event.target.note.value
     event.target.note.value = ''
-    dispatch(createNote(content))
+    createNote(content)
   }
 
   return (
@@ -23,4 +28,4 @@ const NewNote = () => {
   )
 }
 
-export default NewNote
+export default connect(null, { createNote })(NewNote)
