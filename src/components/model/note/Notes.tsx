@@ -1,32 +1,16 @@
 import React, { Dispatch } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { toggleImportanceOf } from '../reducers/noteReducer'
-import type { NoteAction, NoteFilter, NoteService } from '../types/note'
-
-type Props = {
-  note: {
-    important: boolean
-    content: string
-  }
-  handleClick: () => void
-}
-
-const Note = ({ note, handleClick }: Props) => {
-  return (
-    <li onClick={handleClick}>
-      {note.content}
-      <strong> {note.important ? 'important' : ''}</strong>
-    </li>
-  )
-}
+import { toggleImportanceOf } from '../../../reducers/noteReducer'
+import { NoteAction, NoteFilter, NoteService } from '../../../types/note'
+import { Note } from '.'
 
 type NoteSelector = {
   notes: NoteService[]
   filter: NoteFilter
 }
 
-const Notes = () => {
+export const Notes = () => {
   const dispatch = useDispatch<Dispatch<NoteAction>>()
   const notes = useSelector<NoteSelector, NoteService[]>(({ filter, notes }) => {
     if (filter === 'ALL') {
@@ -43,5 +27,3 @@ const Notes = () => {
     </ul>
   )
 }
-
-export default Notes

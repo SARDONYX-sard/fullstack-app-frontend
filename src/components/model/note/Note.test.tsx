@@ -8,11 +8,14 @@ import Note from './Note'
 test('renders content', () => {
   const note = {
     content: 'Component testing is done with react-testing-library',
-    important: true
+    important: true,
+    id: 1,
+    date: '2010-01-01',
+    user: 'Test User'
   }
   const mockHandler = jest.fn()
 
-  const component = render(<Note note={note} toggleImportance={mockHandler} />)
+  const component = render(<Note note={note} handleClick={mockHandler} />)
 
   const button = component.getByText('make not important')
   fireEvent.click(button)

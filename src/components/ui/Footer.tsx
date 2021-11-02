@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Footer = () => {
+export const Footer = () => {
   const footerStyle = {
     color: 'green',
     fontStyle: 'italic',
@@ -14,5 +14,3 @@ const Footer = () => {
     </div>
   )
 }
-
-export default Footer

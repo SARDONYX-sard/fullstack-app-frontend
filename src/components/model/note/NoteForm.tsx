@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 
-import { PostNote } from '../types/note'
+import { PostNote } from '../../../types/note'
 
 export type Props = {
   createNote: (noteObject: PostNote) => void
 }
 
-const NoteForm = ({ createNote }: Props) => {
+export const NoteForm = ({ createNote }: Props) => {
   const [newNote, setNewNote] = useState('')
 
   const handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void = event => {
@@ -36,5 +36,3 @@ const NoteForm = ({ createNote }: Props) => {
     </div>
   )
 }
-
-export default NoteForm

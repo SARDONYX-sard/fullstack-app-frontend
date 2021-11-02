@@ -1,10 +1,10 @@
 import React, { Dispatch } from 'react'
 import { useDispatch } from 'react-redux'
 
-import { createNote } from '../reducers/noteReducer'
-import { NoteAction } from '../types/note'
+import { createNote } from '../../../reducers/noteReducer'
+import { NoteAction } from '../../../types/note'
 
-const NewNote = () => {
+export const NewNote = () => {
   const dispatch = useDispatch<Dispatch<NoteAction>>()
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -22,5 +22,3 @@ const NewNote = () => {
     </form>
   )
 }
-
-export default NewNote
