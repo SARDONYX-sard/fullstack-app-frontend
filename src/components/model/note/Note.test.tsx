@@ -3,7 +3,7 @@ import '@testing-library/jest-dom/extend-expect'
 import { fireEvent, render } from '@testing-library/react'
 import React from 'react'
 
-import Note from './Note'
+import { Note } from '.'
 
 test('renders content', () => {
   const note = {

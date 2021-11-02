@@ -1,8 +1,8 @@
 import React, { Dispatch } from 'react'
 import { useDispatch } from 'react-redux'
 
-import { filterChange } from '../reducers/filterReducer'
-import type { NoteAction } from '../types/note'
+import { filterChange } from '../../reducers/filterReducer'
+import type { NoteAction } from '../../types/note'
 
 const VisibilityFilter = () => {
   const dispatch = useDispatch<Dispatch<Omit<NoteAction, 'data'>>>()

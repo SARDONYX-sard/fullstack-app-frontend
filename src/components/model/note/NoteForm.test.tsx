@@ -3,8 +3,8 @@ import '@testing-library/jest-dom/extend-expect'
 import { fireEvent, render } from '@testing-library/react'
 import React from 'react'
 
-import { PostNote } from '../types/note'
-import NoteForm from './NoteForm'
+import { PostNote } from '../../../types/note'
+import { NoteForm } from '.'
 
 test('<NoteForm /> updates parent state and calls onSubmit', () => {
   const createNote = jest.fn<PostNote, PostNote[]>()

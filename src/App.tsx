@@ -1,35 +1,22 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link, Redirect, Route, Switch, useRouteMatch } from 'react-router-dom'
 
 import { Note, Notes } from './components/model/note'
 import { Home, Login, Users } from './components/pages'
 import { Footer } from './components/ui'
-import type { NoteService } from './types/note'
+import { initializeNotes } from './reducers/noteReducer'
+import store from './store'
+import { NoteService } from './types/note'
 
 const App = () => {
-  const [notes] = useState<NoteService[]>([
-    {
-      id: 1,
-      content: 'HTML is easy',
-      important: true,
-      user: 'Matti Luukkainen',
-      date: '2017-01-01'
-    },
-    {
-      id: 2,
-      content: 'Browser can execute only Javascript',
-      important: false,
-      user: 'Matti Luukkainen',
-      date: '2017-01-01'
-    },
-    {
-      id: 3,
-      content: 'Most important methods of HTTP-protocol are GET and POST',
-      important: true,
-      user: 'Arto Hellas',
-      date: '2017-01-01'
-    }
-  ])
+  const notes = store.getState().notes as NoteService[]
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(initializeNotes())
+  }, [dispatch])
 
   const [user, setUser] = useState<string>('')
 
