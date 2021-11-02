@@ -3,6 +3,7 @@ export type NoteService = {
   content: string
   date: string
   important: boolean
+  user: string
 }
 
 export type NoteAction = {
@@ -13,7 +14,7 @@ export type NoteAction = {
 
 export type NoteFilter = 'ALL' | 'IMPORTANT' | 'NONIMPORTANT'
 
-export type PostNote = Omit<NoteService, 'id' | 'date'>
+export type PostNote = Omit<NoteService, 'id' | 'date' | 'user'>
 
 export type User = {
   name: string
