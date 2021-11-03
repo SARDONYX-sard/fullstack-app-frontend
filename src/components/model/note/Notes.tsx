@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { toggleImportanceOf } from '../../../reducers/noteReducer'
 import { NoteAction, NoteFilter, NoteService } from '../../../types/note'
-import { Note } from '.'
+import { NewNote, Note } from '.'
 
 type NoteSelector = {
   notes: NoteService[]
@@ -20,10 +20,13 @@ export const Notes = () => {
   })
 
   return (
-    <ul>
-      {notes.map(note => (
-        <Note key={note.id} note={note} handleClick={() => dispatch(toggleImportanceOf(note.id))} />
-      ))}
-    </ul>
+    <>
+      <NewNote />
+      <ul>
+        {notes.map(note => (
+          <Note key={note.id} note={note} handleClick={() => dispatch(toggleImportanceOf(note.id))} />
+        ))}
+      </ul>
+    </>
   )
 }
